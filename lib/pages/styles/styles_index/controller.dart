@@ -32,6 +32,12 @@ class StylesIndexController extends GetxController {
     update(["styles_index"]);
   }
 
+  // 主题
+  onThemeSelected(String themeKey) async {
+    await ConfigService.to.setThemeMode(themeKey);
+    update(["styles_index"]);
+  }
+
   // @override
   // void onClose() {
   //   super.onClose();

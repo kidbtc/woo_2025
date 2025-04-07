@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
@@ -18,9 +19,14 @@ class ConfigService extends GetxService {
   // 多语言
   Locale locale = PlatformDispatcher.instance.locale;
 
+  // 主题
+  AdaptiveThemeMode themeMode = AdaptiveThemeMode.light;
+
   // 初始化
   Future<ConfigService> init() async {
     await getPlatform();
+    // 初始主题
+    await initTheme();
     // 多语言初始
     initLocale();
     return this;
@@ -47,5 +53,26 @@ class ConfigService extends GetxService {
     locale = value;
     Get.updateLocale(value);
     Storage().setString(Constants.storageLanguageCode, value.languageCode);
+  }
+
+  // 初始 theme
+  Future<void> initTheme() async {
+    final savedThemeMode = await AdaptiveTheme.getThemeMode();
+    themeMode = savedThemeMode ?? AdaptiveThemeMode.light;
+  }
+
+  // 切换 theme
+  Future<void> setThemeMode(String themeKey) async {
+    switch (themeKey) {
+      case "light":
+        AdaptiveTheme.of(Get.context!).setLight();
+        break;
+      case "dark":
+        AdaptiveTheme.of(Get.context!).setDark();
+        break;
+      case "system":
+        AdaptiveTheme.of(Get.context!).setSystem();
+        break;
+    }
   }
 }
