@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
             darkTheme: darkTheme,
             // 路由
             //initialRoute: RouteNames.systemSplash,
+            //initialRoute: RouteNames.stylesStylesIndex,
             initialRoute: RouteNames.stylesStylesIndex,
             getPages: RoutePages.list,
             navigatorObservers: [RoutePages.observer],

@@ -48,6 +48,8 @@ dependencies:
   dio: ^5.8.0+1
   #主题
   adaptive_theme: ^3.7.0
+  #界面核心包
+  ducafe_ui_core: ^1.0.6
 
 dev_dependencies:
   flutter_test:
@@ -102,15 +104,15 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 
+fonts:
+- family: Montserrat
   fonts:
-  - family: Montserrat
-    fonts:
-      - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
-        weight: 300
-      - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
-        weight: 400
-      - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
-        weight: 500
-      - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
-        weight: 700
+    - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
+      weight: 300
+    - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
+      weight: 400
+    - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
+      weight: 500
+    - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
+      weight: 700
 
